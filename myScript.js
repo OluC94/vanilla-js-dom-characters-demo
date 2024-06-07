@@ -6,6 +6,7 @@ import { characters } from "./characters.js";
 renderCharacterListToHTML();
 setupSearchButton();
 setupCauseAnErrorButton();
+setupRandomDeleteButton();
 
 function renderCharacterListToHTML() {
     const characterLiElements = makeLiElementsForCharacters();
@@ -25,7 +26,7 @@ function createOneLiElementForCharacter(character) {
     element.innerHTML = character.name + " from " + character.book;
 
     element.addEventListener("click", () => {
-        alert(character.powers.join(", "));
+        alert(`${character.name.toUpperCase()} - ${character.powers.join(", ")}`);
     });
     element.addEventListener("mouseover", () => {
         focusedCharacterParagraph.innerText =
@@ -67,4 +68,16 @@ function screwUpIntentionally() {
     const x = 10;
     x = 20;
     console.log("This function is about to finish normally");
+}
+
+function setupRandomDeleteButton() {
+    const myButton = document.getElementById("randomDeleteButton");
+    myButton.addEventListener("click", deleteRandomCharacter);
+}
+
+function deleteRandomCharacter() {
+    const randIndex = Math.floor(Math.random() * characters.length)
+    characters.splice(randIndex, 1);
+    const currentCharacters = document.getElementById("charactersUL")
+    // currentCharacters.splice(randIndex, 1)
 }

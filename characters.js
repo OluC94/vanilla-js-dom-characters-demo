@@ -60,4 +60,9 @@ export const characters = [
         book: "Mistborn series",
         powers: ["Allomancy", "Steelpushing", "Ironpulling"],
     },
+    {
+        name: "Dante",
+        book: "N/A",
+        powers: ["Trickets", "Royal Guard", "Gunslinger"]
+    }
 ];
